@@ -1,4 +1,7 @@
 /**
+ * tgui process
+ *
+ * Contains a bit of the tgui process code.
  * Copyright (c) 2020 Aleksej Komarov & ZeWaka
  * SPDX-License-Identifier: MIT
  */
@@ -7,10 +10,15 @@ var/global/datum/controller/process/tgui/tgui_process
 
 // handles tgui interfaces
 /datum/controller/process/tgui
-	var/list/currentrun = list()
-	var/list/open_uis = list() // A list of open UIs, grouped by src_object and ui_key.
-	var/list/processing_uis = list() // A list of processing UIs, ungrouped.
-	var/basehtml // The HTML base used for all UIs.
+
+	/// A list of UIs scheduled to process
+	var/list/current_run = list()
+	/// A list of open UIs
+	var/list/open_uis = list()
+	/// A list of open UIs, grouped by src_object.
+	var/list/open_uis_by_src = list()
+	/// The HTML base used for all UIs.
+	var/basehtml
 
 	setup()
 		name = "tgui"
@@ -19,21 +27,21 @@ var/global/datum/controller/process/tgui/tgui_process
 		tgui_process = src
 
 	doWork()
-		src.currentrun = processing_uis.Copy()
+		src.current_run = open_uis.Copy()
 		//cache for sanic speed (lists are references anyways)
-		var/list/currentrun = src.currentrun
+		var/list/current_run = src.current_run
 
-		while(currentrun.len)
-			var/datum/tgui/ui = currentrun[currentrun.len]
-			currentrun.len--
+		while(current_run.len)
+			var/datum/tgui/ui = current_run[current_run.len]
+			current_run.len--
 			if(ui && ui.user && ui.src_object)
 				ui.process()
 			else
-				processing_uis.Remove(ui)
+				open_uis.Remove(ui)
 			scheck()
 
 	onKill()
 		close_all_uis()
 
 	tickDetail()
-		boutput(usr, "P:[processing_uis.len]")
+		boutput(usr, "P:[open_uis.len]")
