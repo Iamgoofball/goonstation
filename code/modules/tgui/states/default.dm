@@ -3,7 +3,7 @@
  *
  * Checks a number of things -- mostly physical distance for humans and view for robots.
  */
-var/global/datum/ui_state/default/default = new /datum/ui_state/default
+var/global/datum/ui_state/default/default_state = new /datum/ui_state/default
 
 /datum/ui_state/default/can_use_topic(src_object, mob/user)
 	return user.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
@@ -49,8 +49,8 @@ var/global/datum/ui_state/default/default = new /datum/ui_state/default
 	// The AI can interact with anything it can see.
 	return UI_INTERACTIVE
 
-/mob/living/simple_animal/default_can_use_topic(src_object)
+/mob/living/critter/default_can_use_topic(src_object)
 	. = shared_ui_interaction(src_object)
 	if(. > UI_CLOSE)
-		. = min(., shared_living_ui_distance(src_object)) //simple animals can only use things they're near.
+		. = min(., shared_living_ui_distance(src_object)) //critters can only use things they're near.
 

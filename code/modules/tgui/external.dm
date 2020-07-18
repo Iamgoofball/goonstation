@@ -106,7 +106,7 @@
  * This is a proc over a var for memory reasons
  */
 /datum/proc/ui_state(mob/user)
-	return GLOB.default_state
+	return global.default_state
 
 /**
  * global

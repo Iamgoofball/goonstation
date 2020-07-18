@@ -20,6 +20,3 @@ var/global/datum/ui_state/notcontained_state/notcontained_state = new /datum/ui_
 
 /mob/living/silicon/notcontained_can_use_topic(src_object)
 	return default_can_use_topic(src_object) // Silicons use default bevhavior.
-
-/mob/living/simple_animal/drone/notcontained_can_use_topic(src_object)
-	return default_can_use_topic(src_object) // Drones use default bevhavior.
