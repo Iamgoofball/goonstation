@@ -63,14 +63,14 @@
 		return UI_CLOSE
 	else if(stat) // Disable UIs if unconcious.
 		return UI_DISABLED
-	else if(isalive(src)) // Update UIs if incapicitated but concious.
+	else if(!can_act(src, include_cuffs = 1)) // Update UIs if incapicitated but concious.
 		return UI_UPDATE
 	return UI_INTERACTIVE
 
-/mob/living/shared_ui_interaction(src_object)
-	. = ..()
-	if(!(!can_act(src, include_cuffs = 1)) && . == UI_INTERACTIVE)
-		return UI_UPDATE
+// /mob/living/shared_ui_interaction(src_object) [GOONSTATION-REMOVE] - on base mob
+// 	. = ..()
+// 	if((!can_act(src, include_cuffs = 1)) && . == UI_INTERACTIVE)
+// 		return UI_UPDATE
 
 /mob/living/silicon/ai/shared_ui_interaction(src_object)
 	if(power_mode == -1) // Disable UIs if the AI is unpowered.
