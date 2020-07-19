@@ -2,7 +2,7 @@
  * tgui process
  *
  * Contains a bit of the tgui process code.
- * Copyright (c) 2020 Aleksej Komarov & ZeWaka
+ * Copyright (c) 2020 Aleksej Komarov & ZeWaka (minor porting changes)
  * SPDX-License-Identifier: MIT
  */
 
@@ -23,7 +23,7 @@ var/global/datum/controller/process/tgui/tgui_process
 	setup()
 		name = "tgui"
 		schedule_interval = 9 DECI SECONDS
-		basehtml = file2text('tgui/packages/tgui/public/tgui.html')
+		basehtml = grabResource("html/tgui/tgui.html") // [GOONSTATION-ADD]
 		tgui_process = src
 
 	doWork()

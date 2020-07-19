@@ -55,10 +55,11 @@
 	// TODO: Make this static
 	var/html = tgui_process.basehtml
 	html = replacetextEx(html, "\[tgui:windowId]", id)
-	// Send required assets
-	var/datum/asset/asset
-	asset = get_asset_datum(/datum/asset/group/tgui)
-	asset.send(client)
+	// Send required assets if cdn cannot be reached
+	if (!cdn)
+		var/datum/asset/asset
+		asset = get_assets(/datum/asset/group/tgui)
+		asset.deliver(client)
 	// Open the window
 	client << browse(html, "window=[id];[options]")
 	// Instruct the client to signal UI when the window is closed.

@@ -144,13 +144,9 @@
  * required asset datum/asset
  */
 /datum/tgui/proc/send_asset(var/datum/asset/asset)
-	if(!user.client)
+	if(!user.client || cdn) //Don't deliver if there's nobody to see it, or if they'd get it from the cdn
 		return
-	if(istype(asset, /datum/asset/spritesheet))
-		var/datum/asset/spritesheet/spritesheet = asset
-		LAZYLISTINIT(asset_data)
-		LAZYLISTADD(asset_data["styles"], list(spritesheet.css_filename()))
-	asset.send(user)
+	asset.deliver(user)
 
 /**
  * public

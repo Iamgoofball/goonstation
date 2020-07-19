@@ -623,6 +623,8 @@ var/datum/preMapLoad/preMapLoad = new
 #include "code\modules\antagonists\grinch\abilities\murder.dm"
 #include "code\modules\antagonists\grinch\abilities\poison.dm"
 #include "code\modules\antagonists\grinch\abilities\vandalism.dm"
+#include "code\modules\assets\asset.dm"
+#include "code\modules\assets\assets_tgui.dm"
 #include "code\modules\atmospherics\FEA_airgroup.dm"
 #include "code\modules\atmospherics\FEA_fire.dm"
 #include "code\modules\atmospherics\FEA_gas_mixture.dm"

@@ -28,3 +28,9 @@
 #define TGUI_WINDOW_ID(index) "tgui-window-[index]"
 /// Get a pool index of the provided window id
 #define TGUI_WINDOW_INDEX(window_id) text2num(copytext(window_id, 13))
+
+/// Name of the local tgui javascript file [GOONSTATION-ADD]
+#define TGUI_JS "tgui.bundle.js"
+
+/// Name of the local tgui css file [GOONSTATION-ADD]
+#define TGUI_CSS "tgui.bundle.css"
