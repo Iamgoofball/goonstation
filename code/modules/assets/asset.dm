@@ -10,8 +10,11 @@ var/global/list/global_asset_datum_list = list()
 /// Base asset type
 ABSTRACT_TYPE(/datum/asset)
 /datum/asset
-/datum/asset/init()
-/datum/asset/deliver(client)
+
+/datum/asset/proc/init()
+
+/datum/asset/proc/deliver(client)
+
 /datum/asset/New()
 	global_asset_datum_list[src.type] = src
 	init()

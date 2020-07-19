@@ -51,10 +51,10 @@
  * return datum/tgui The requested UI.
  */
 /datum/tgui/New(mob/user, datum/src_object, interface, title, ui_x, ui_y)
-	log_tgui(user, "new [interface] fancy [user.client.preferences.tgui_fancy]")
+	log_tgui(user, "new [interface] fancy [user.client.preferences.tgui_fancy]") // client.preferences [GOONSTATION-ADD]
 	src.user = user
 	src.src_object = src_object
-	src.window_key = "\ref[src_object]-main"
+	src.window_key = "\ref[src_object]-main" // REF doesn't exist [GOONSTATION-ADD]
 	src.interface = interface
 	if(title)
 		src.title = title
@@ -224,7 +224,7 @@
  * Run an update cycle for this UI. Called internally by tgui_process
  * every second or so.
  */
-/datum/tgui/process(force = FALSE)
+/datum/tgui/proc/process(force = FALSE) // /process doesn't exist on datums here [GOONSTATION-ADD]
 	if(closing)
 		return
 	var/datum/host = src_object.ui_host(user)

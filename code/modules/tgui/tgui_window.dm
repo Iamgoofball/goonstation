@@ -61,6 +61,7 @@
 		asset = get_assets(/datum/asset/group/tgui)
 		asset.deliver(client)
 	// Open the window
+	message_coders(url_encode(html))
 	client << browse(html, "window=[id];[options]")
 	// Instruct the client to signal UI when the window is closed.
 	winset(client, id, "on-close=\"uiclose [id]\"")

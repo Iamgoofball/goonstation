@@ -73,7 +73,7 @@
 		return UI_UPDATE
 
 /mob/living/silicon/ai/shared_ui_interaction(src_object)
-	if(power_mode = -1) // Disable UIs if the AI is unpowered.
+	if(power_mode == -1) // Disable UIs if the AI is unpowered.
 		return UI_DISABLED
 	return ..()
 
