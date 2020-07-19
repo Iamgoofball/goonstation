@@ -15,10 +15,10 @@
 /// FontAwesome assets
 /datum/asset/basic/fa
 	assets = list(
-		"html/font-awesome/webfonts/fa-regular-400.eot",
-		"html/font-awesome/webfonts/fa-regular-400.woff",
-		"html/font-awesome/webfonts/fa-solid-900.eot",
-		"html/font-awesome/webfonts/fa-solid-900.woff",
-		"html/font-awesome/css/all.min.css",
-		"html/font-awesome/css/v4-shims.min.css"
+		"browserassets/css/fonts/tgui/fa-regular-400.eot",
+		"browserassets/css/fonts/tgui/fa-regular-400.woff",
+		"browserassets/css/fonts/tgui/fa-solid-900.eot",
+		"browserassets/css/fonts/tgui/fa-solid-900.woff",
+		"browserassets/css/tgui/font-awesome.min.css",
+		"browserassets/css/tgui/v4-shims.min.css"
 	)
