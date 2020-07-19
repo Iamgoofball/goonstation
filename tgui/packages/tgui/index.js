@@ -187,7 +187,7 @@ const setupApp = () => {
   }
 
   // Load font-awesome from the cdn [GOONSTATION-ADD]
-  loadCSS('http://cdn.goonhub.com/css/font-awesome.css');
+  loadCSS('http://cdn.goonhub.com/css/tgui/font-awesome.min.css');
 };
 
 // Setup a fatal error reporter
